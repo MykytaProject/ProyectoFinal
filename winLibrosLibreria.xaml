@@ -1,0 +1,38 @@
+﻿<Window x:Class="ProyectoFinal.winLibrosLibreria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinal"
+        mc:Ignorable="d" Height="502" Width="1020" MinHeight="500" MinWidth="1000" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Consulta libros por libreria" Grid.Row="0" HorizontalAlignment="Center"
+               VerticalAlignment="Center" FontSize="24"></Label>
+        <Button Grid.Row="2" Height="40" Width="150" Content="Mostrar Artículos" FontSize="18" Click="Button_Click"></Button>
+        <DataGrid x:Name="dgProveedor" IsReadOnly="True" Grid.Row="1"
+HorizontalAlignment="Center" Height="130" Width="835"
+ScrollViewer.CanContentScroll="True" SelectionMode="Single" MouseDoubleClick="dgProveedor_MouseDoubleClick" />
+        <DataGrid x:Name="dgArticulos" Grid.Row="3" IsReadOnly="True"
+ScrollViewer.CanContentScroll="True"/>
+        <StatusBar Height="35" VerticalAlignment="Bottom" Grid.Row="4">
+            <TextBlock>
+ <Label x:Name="laTotal" FontSize="14" Background="AntiqueWhite"
+ VerticalContentAlignment="Center" Height="35" Width="600" />
+            </TextBlock >
+            <Separator Width="2"/>
+            <Separator Width="15"/>
+            <TextBlock>
+ <Button x:Name="btSalir" Content="Salir" HorizontalAlignment="Left"
+ VerticalAlignment="Top" Width="77" Click="btSalir_Click" />
+            </TextBlock>
+        </StatusBar>
+
+    </Grid>
+</Window>

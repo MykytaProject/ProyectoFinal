@@ -1,0 +1,99 @@
+﻿<Window x:Class="ProyectoFinal.winLibreria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinal"
+        mc:Ignorable="d"
+        Title="winLibreria" Height="535" Width="700" Background="Black"
+WindowStartupLocation="CenterScreen" MinWidth="605" Loaded="Window_Loaded_1" Closing="Window_Closing">
+    <Grid>
+        <!--Grid principal de 1 fila x 2 columnas -->
+        <Grid Margin="5" Background="White" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <!--En esta fila ponemos el ListBox -->
+                <ColumnDefinition Width="3*"/>
+                <!--Aqui va un grid secundario-->
+            </Grid.ColumnDefinitions>
+            <!-- El control de la izquierda es un listbox ubicado en la columna 0 -->
+            <ListBox Background="LightGray" Margin="9,4,5,10" Name="lbLibrerias" SelectionChanged="lbLibros_SelectionChanged" />
+            <Grid Grid.Column="1" Background="LightGreen" Margin="0,5,5,5">
+                <!-- Grid
+secundario de 3 filas x 1 columna ubicado en columna 1 del grid principal donde
+ponemos los label, textbox y botones -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!--fila con otro Grid para los textbox -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- fila para un grid uniforme donde
+ están anidados los botones nuevo, modificar y eliminar-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- fila para un grid uniforme donde
+ están anidados los botones guardar, actualizar y cancelar -->
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="gridTexbox" Grid.Row="0" Margin="7,0,3,10"
+ Background="Bisque">
+                    <!--Grid de los textbox-->
+                    <Grid.RowDefinitions>
+                        <!-- Hay que Poner tantas filas como campos haya
+ en la tabla -->
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="250"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <!-- Pondremos 2 columnas, una para los label y
+ otra para los textbox y combobox -->
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Definimos todos los label, los textbox, los combobox y un DatePicker -->
+                    <Label Margin="5" Content="Codigo:"/>
+                    <TextBox Name="tbCodigo" Grid.Column="1" Margin="5" Height="25"
+                        IsReadOnly="True" />
+
+                    <Label Margin="5" Grid.Row="1" Content="*Nombre"/>
+                    <TextBox Name="tbNombre" Grid.Column="1" Grid.Row="1" Margin="5"
+                        Height="25" IsReadOnly="True" />
+
+                    <Label Margin="5" Grid.Row="2" Content="Población"/>
+                    <TextBox Name="tbPoblacion" Grid.Column="1" Grid.Row="2" Margin="5"
+                        Height="25" IsReadOnly="True" />
+
+                </Grid>
+                <!-- ponemos el Grid uniforme donde están anidados los botones nuevo, modificar
+y eliminar Proporciona un modo de organizar el contenido en una cuadrícula en
+la que todas las celdas tienen el mismo tamaño. -->
+                <UniformGrid x:Name="uGridNuevoModificarEliminar" Grid.Row="1" Columns="3"
+ Background="Orange" Margin="7,0,7,7">
+                    <Button Margin="3" Padding="3" Name="btNuevo" Click="btNuevo_Click" >Nuevo</Button>
+                    <Button Margin="3" Padding="3" Name="btModificar" Click="btModificar_Click">Modificar</Button>
+                    <Button Margin="3" Padding="3" Name="btEliminar" Click="btEliminar_Click" >Eliminar</Button>
+                </UniformGrid>
+                <!-- ponemos otro Grid uniforme donde están anidados los botones guardar,
+actualizar, cancelar, etc -->
+                <UniformGrid Name="uGridGuardarActualizarCancelar" Grid.Row="2" Columns="3"
+ Background="LightBlue" Margin="7,0,7,7" >
+                    <Button Margin="3" Padding="3" x:Name="btGuardar"
+ IsEnabled="False" Click="btGuardar_Click" >Guardar</Button>
+                    <Button Margin="3" Padding="3" x:Name="btActualizar"
+ IsEnabled="False" Click="btActualizar_Click" >Actualizar</Button>
+                    <Button Margin="3" Padding="3" x:Name="btCancelar"
+ IsEnabled="False" Click="btCancelar_Click" >Cancelar</Button>
+                    <Button Margin="3" Padding="3" Name="btSalir" Click="btSalir_Click" >Salir</Button>
+                </UniformGrid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>
